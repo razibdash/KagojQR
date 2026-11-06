@@ -1,0 +1,18 @@
+# Minimal Supabase CLI config. Run `supabase init` to regenerate a full one if needed.
+project_id = "kagojqr"
+
+[auth]
+site_url = "https://kagojqr.app"
+additional_redirect_urls = ["com.kagojqr.app://login-callback"]
+enable_signup = true
+
+# Google is the only login method (configure client id/secret in the dashboard
+# or via env vars; never commit them).
+[auth.external.google]
+enabled = true
+client_id = "env(GOOGLE_WEB_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
+skip_nonce_check = false
+
+[functions.verify-and-view]
+verify_jwt = false  # officers are not logged in; the function does its own checks
